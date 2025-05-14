@@ -1,0 +1,21 @@
+name: GuildWarsClasses
+version: '1.0.0'
+main: com.guildwars.classes.GuildWarsClasses
+api-version: '1.20'
+authors: [YourName]
+description: A class system addon for the GuildWars plugin
+depend: [GuildWars]
+commands:
+  class:
+    description: Main command for class management
+    usage: /<command> [list|select|info|remove|ability1|ability2]
+    aliases: [classes, c]
+permissions:
+  guildwarsclasses.use:
+    description: Allows use of the class system
+    default: true
+  guildwarsclasses.admin:
+    description: Gives access to all GuildWarsClasses commands
+    default: op
+    children:
+      guildwarsclasses.use: true

@@ -1,0 +1,64 @@
+# GuildWarsClasses Configuration
+
+# Class Settings
+classes:
+  # Orc Class Settings
+  orc:
+    enabled: true
+    # Passive Effects
+    passive:
+      strength-level: 0  # Strength level (0 = level 1)
+      slowness-level: 0  # Slowness level (0 = level 1)
+    # Primary Ability (Orc Rage)
+    primary-ability:
+      cooldown: 60       # Cooldown in seconds
+      duration: 15       # Duration in seconds
+      strength-level: 1  # Strength level during ability (1 = level 2)
+      resistance-level: 0 # Resistance level during ability (0 = level 1)
+    # Secondary Ability (Ground Slam)
+    secondary-ability:
+      cooldown: 180      # Cooldown in seconds
+      radius: 5          # Effect radius in blocks
+      knockback-power: 1.5 # Knockback power
+      weakness-duration: 10 # Weakness effect duration in seconds
+
+  # Healer Class Settings
+  healer:
+    enabled: true
+    # Passive Effects
+    passive:
+      health-boost-level: 1 # Health boost level (1 = level 2)
+      regeneration-level: 0 # Regeneration level (0 = level 1)
+    # Primary Ability (Healing Beam)
+    primary-ability:
+      cooldown: 30       # Cooldown in seconds
+      healing-amount: 12 # Amount of health to restore (in health points, 2 = 1 heart)
+      beam-length: 40    # Length of the healing beam in blocks
+      regeneration-duration: 10 # Regeneration effect duration in seconds
+      regeneration-level: 1 # Regeneration level (1 = level 2)
+    # Secondary Ability (Healing Aura)
+    secondary-ability:
+      cooldown: 120      # Cooldown in seconds
+      radius: 10         # Effect radius in blocks
+      healing-amount: 8  # Amount of health to restore (in health points, 2 = 1 heart)
+      regeneration-duration: 15 # Regeneration effect duration in seconds
+      regeneration-level: 1 # Regeneration level (1 = level 2)
+      absorption-duration: 30 # Absorption effect duration in seconds
+      absorption-level: 1 # Absorption level (1 = level 2)
+
+# Guild Integration Settings
+guild-integration:
+  enabled: true
+  # Class bonuses for guild members
+  guild-bonuses:
+    enabled: true
+    orc:
+      strength-bonus: 1  # Additional strength level for guild members
+    healer:
+      healing-bonus: 2   # Additional healing amount for guild members
+
+# General Settings
+settings:
+  allow-class-change: true  # Whether players can change their class
+  class-change-cooldown: 86400 # Cooldown for changing class (in seconds, default: 1 day)
+  save-interval: 300     # How often to save class data (in seconds)
