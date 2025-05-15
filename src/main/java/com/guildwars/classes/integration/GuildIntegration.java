@@ -139,7 +139,7 @@ public class GuildIntegration {
         int strengthBonus = plugin.getConfig().getInt("guild-integration.guild-bonuses.orc.strength-bonus", 1);
         
         if (strengthBonus > 0) {
-            player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, strengthBonus, true, false));
+            player.addPotionEffect(new PotionEffect(PotionEffectType.STRENGTH, Integer.MAX_VALUE, strengthBonus, true, false));
             player.sendMessage("§6[Guild Bonus] §aYour guild membership grants you additional strength!");
         }
     }
@@ -154,7 +154,7 @@ public class GuildIntegration {
         
         if (healthBonus > 0) {
             player.addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, Integer.MAX_VALUE, healthBonus, true, false));
-            player.setHealth(Math.min(player.getHealth() + 4, player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()));
+            player.setHealth(Math.min(player.getHealth() + 4, player.getAttribute(Attribute.MAX_HEALTH).getValue()));
             player.sendMessage("§6[Guild Bonus] §aYour guild membership grants you additional health!");
         }
     }

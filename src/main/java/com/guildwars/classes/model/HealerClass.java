@@ -5,8 +5,8 @@ import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.Sound;
-import org.bukkit.entity.Entity;
 import org.bukkit.attribute.Attribute;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
@@ -43,7 +43,7 @@ public class HealerClass extends PlayerClass {
         applyPotionEffect(player, PotionEffectType.REGENERATION, Integer.MAX_VALUE, 0, true, false);
         
         // Heal the player to their new maximum health
-        player.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+        player.setHealth(player.getAttribute(Attribute.MAX_HEALTH).getValue());
         
         player.sendMessage(ChatColor.GREEN + "You feel the healing energy flowing through your body!");
     }
@@ -78,7 +78,7 @@ public class HealerClass extends PlayerClass {
             
             // Display healing particles
             player.getWorld().spawnParticle(
-                Particle.REDSTONE, 
+                Particle.DUST_COLOR_TRANSITION, 
                 particleLocation, 
                 5, 
                 0.1, 0.1, 0.1, 
@@ -92,12 +92,12 @@ public class HealerClass extends PlayerClass {
                     Player target = (Player) entity;
                     
                     // Don't heal if already at max health
-                    if (target.getHealth() >= target.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()) {
+                    if (target.getHealth() >= target.getAttribute(Attribute.MAX_HEALTH).getValue()) {
                         continue;
                     }
                     
                     // Heal the target for 6 hearts (12 health points)
-                    double newHealth = Math.min(target.getHealth() + 12, target.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+                    double newHealth = Math.min(target.getHealth() + 12, target.getAttribute(Attribute.MAX_HEALTH).getValue());
                     target.setHealth(newHealth);
                     
                     // Apply regeneration effect (level 1, 10 seconds)
@@ -141,7 +141,7 @@ public class HealerClass extends PlayerClass {
                 Player target = (Player) entity;
                 
                 // Heal the target for 4 hearts (8 health points)
-                double newHealth = Math.min(target.getHealth() + 8, target.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+                double newHealth = Math.min(target.getHealth() + 8, target.getAttribute(Attribute.MAX_HEALTH).getValue());
                 target.setHealth(newHealth);
                 
                 // Apply regeneration effect (level 1, 15 seconds)
@@ -167,7 +167,7 @@ public class HealerClass extends PlayerClass {
             Location particleLocation = player.getLocation().clone().add(x, 0.5, z);
             
             player.getWorld().spawnParticle(
-                Particle.REDSTONE, 
+                Particle.DUST_COLOR_TRANSITION, 
                 particleLocation, 
                 5, 
                 0.1, 0.1, 0.1, 

@@ -31,10 +31,10 @@ public class OrcClass extends PlayerClass {
     @Override
     public void applyEffects(Player player) {
         // Apply strength effect (level 1, infinite duration)
-        applyPotionEffect(player, PotionEffectType.INCREASE_DAMAGE, Integer.MAX_VALUE, 0, true, false);
+        applyPotionEffect(player, PotionEffectType.STRENGTH, Integer.MAX_VALUE, 0, true, false);
         
         // Apply slowness effect (level 0, infinite duration)
-        applyPotionEffect(player, PotionEffectType.SLOW, Integer.MAX_VALUE, 0, true, false);
+        applyPotionEffect(player, PotionEffectType.SLOWNESS, Integer.MAX_VALUE, 0, true, false);
         
         player.sendMessage(ChatColor.GREEN + "You feel the strength of an Orc flowing through your veins!");
     }
@@ -42,10 +42,10 @@ public class OrcClass extends PlayerClass {
     @Override
     public void removeEffects(Player player) {
         // Remove strength effect
-        removePotionEffect(player, PotionEffectType.INCREASE_DAMAGE);
+        removePotionEffect(player, PotionEffectType.STRENGTH);
         
         // Remove slowness effect
-        removePotionEffect(player, PotionEffectType.SLOW);
+        removePotionEffect(player, PotionEffectType.SLOWNESS);
     }
 
     @Override
@@ -60,10 +60,10 @@ public class OrcClass extends PlayerClass {
         }
         
         // Apply temporary strength boost (level 2, 15 seconds)
-        applyPotionEffect(player, PotionEffectType.INCREASE_DAMAGE, 15 * 20, 1, true, true);
+        applyPotionEffect(player, PotionEffectType.STRENGTH, 15 * 20, 1, true, true);
         
         // Apply temporary resistance (level 1, 15 seconds)
-        applyPotionEffect(player, PotionEffectType.DAMAGE_RESISTANCE, 15 * 20, 0, true, true);
+        applyPotionEffect(player, PotionEffectType.RESISTANCE, 15 * 20, 0, true, true);
         
         // Play sound effect
         player.playSound(player.getLocation(), Sound.ENTITY_RAVAGER_ROAR, 1.0f, 0.8f);
